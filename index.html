@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToolHub - Free Online Tools</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f3f6ff;
+    color:#222;
+}
+
+.dark{
+    background:#121212;
+    color:white;
+}
+
+header{
+    background:#2563eb;
+    color:white;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.hero{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero h1{
+    font-size:35px;
+}
+
+.search{
+    width:90%;
+    max-width:500px;
+    padding:12px;
+    margin-top:15px;
+    border-radius:10px;
+    border:1px solid #aaa;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.dark .card{
+    background:#222;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:8px;
+    border:1px solid #bbb;
+}
+
+.result{
+    margin-top:10px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">⚡ ToolHub</div>
+
+<button onclick="darkMode()">
+🌙 Mode
+</button>
+</header>
+
+
+<section class="hero">
+
+<h1>100+ Free Online Tools</h1>
+
+<p>Fast, Easy & Free Utilities</p>
+
+
+<input 
+class="search"
+id="search"
+placeholder="Search tools..."
+onkeyup="searchTools()">
+
+</section>
+
+
+<div class="container">
+
+<!-- Age Calculator -->
+
+<div class="card">
+
+<h2>🎂 Age Calculator</h2>
+
+<input type="date" id="dob">
+
+<button onclick="age()">
+Calculate
+</button>
+
+<p id="ageResult" class="result"></p>
+
+</div>
+
+
+<!-- BMI Calculator -->
+
+<div class="card">
+
+<h2>⚖ BMI Calculator</h2>
+
+<input type="number" id="weight"
+placeholder="Weight in KG">
+
+<input type="number" id="height"
+placeholder="Height in CM">
+
+
+<button onclick="bmi()">
+Calculate
+</button>
+
+<p id="bmiResult"
+class="result"></p>
+
+</div>
+
+
+<!-- EMI Calculator -->
+
+<div class="card">
+
+<h2>💰 EMI Calculator</h2>
+
+<input id="loan"
+type="number"
+placeholder="Loan Amount">
+
+
+<input id="rate"
+type="number"
+placeholder="Interest Rate">
+
+
+<input id="months"
+type="number"
+placeholder="Months">
+
+
+<button onclick="emi()">
+Calculate
+</button>
+
+<p id="emiResult"
+class="result"></p>
+
+</div>
