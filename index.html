@@ -197,3 +197,268 @@ Calculate
 class="result"></p>
 
 </div>
+<!-- Percentage Calculator -->
+
+<div class="card">
+
+<h2>📊 Percentage Calculator</h2>
+
+<input id="total"
+type="number"
+placeholder="Total Marks">
+
+<input id="obtained"
+type="number"
+placeholder="Obtained Marks">
+
+<button onclick="percentage()">
+Calculate
+</button>
+
+<p id="percentageResult"
+class="result"></p>
+
+</div>
+
+
+<!-- Password Generator -->
+
+<div class="card">
+
+<h2>🔐 Password Generator</h2>
+
+<button onclick="generatePassword()">
+Generate Password
+</button>
+
+<p id="passwordResult"
+class="result"></p>
+
+</div>
+
+
+<!-- QR Code Generator -->
+
+<div class="card">
+
+<h2>🔳 QR Generator</h2>
+
+<input id="qrText"
+type="text"
+placeholder="Enter text or URL">
+
+<button onclick="generateQR()">
+Generate QR
+</button>
+
+<div id="qrResult"></div>
+
+</div>
+
+
+</div>
+
+
+<footer style="text-align:center;padding:20px;">
+© 2026 ToolHub | Free Online Tools
+</footer>
+
+
+<script>
+
+function darkMode(){
+document.body.classList.toggle("dark");
+}
+
+
+function searchTools(){
+
+let input =
+document.getElementById("search")
+.value.toLowerCase();
+
+let cards =
+document.querySelectorAll(".card");
+
+
+cards.forEach(card => {
+
+if(card.innerText.toLowerCase()
+.includes(input)){
+
+card.style.display = "block";
+
+}
+else{
+
+card.style.display = "none";
+
+}
+
+});
+
+}
+
+
+// Age Calculator
+
+function age(){
+
+let dob =
+new Date(
+document.getElementById("dob").value
+);
+
+let today = new Date();
+
+let years =
+today.getFullYear()
+- dob.getFullYear();
+
+
+let month =
+today.getMonth()
+- dob.getMonth();
+
+
+if(month < 0 ||
+(month == 0 &&
+today.getDate() <
+dob.getDate())){
+
+years--;
+
+}
+
+
+document.getElementById("ageResult")
+.innerHTML =
+"Your Age: " +
+years +
+" years";
+
+}
+
+
+// BMI
+
+function bmi(){
+
+let w =
+document.getElementById("weight").value;
+
+let h =
+document.getElementById("height").value / 100;
+
+let value =
+(w / (h*h)).toFixed(2);
+
+
+document.getElementById("bmiResult")
+.innerHTML =
+"Your BMI: " +
+value;
+
+}
+
+
+// EMI
+
+function emi(){
+
+let p =
+document.getElementById("loan").value;
+
+let r =
+document.getElementById("rate").value / 12 / 100;
+
+
+let n =
+document.getElementById("months").value;
+
+
+let result =
+(p*r*Math.pow(1+r,n))
+/
+(Math.pow(1+r,n)-1);
+
+
+document.getElementById("emiResult")
+.innerHTML =
+"Monthly EMI ₹" +
+result.toFixed(2);
+
+}
+
+
+// Percentage
+
+function percentage(){
+
+let total =
+document.getElementById("total").value;
+
+
+let obtained =
+document.getElementById("obtained").value;
+
+
+let per =
+(obtained / total)
+*100;
+
+
+document.getElementById("percentageResult")
+.innerHTML =
+"Percentage: "
++ per.toFixed(2)
++ "%";
+
+}
+
+
+// Password Generator
+
+function generatePassword(){
+
+let chars =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%";
+
+let pass = "";
+
+
+for(let i=0;i<12;i++){
+
+pass += chars.charAt(
+Math.floor(Math.random()
+* chars.length));
+
+}
+
+
+document.getElementById("passwordResult")
+.innerHTML = pass;
+
+}
+
+
+// QR Generator
+
+function generateQR(){
+
+let text =
+document.getElementById("qrText").value;
+
+
+document.getElementById("qrResult").innerHTML =
+"<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="
++ encodeURIComponent(text)
++ "'>";
+
+}
+
+</script>
+
+
+</body>
+</html>
